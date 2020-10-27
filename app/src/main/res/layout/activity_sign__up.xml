@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.111"
+        app:layout_constraintVertical_bias="0.087"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -139,5 +139,46 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.357" />
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+
+        app:layout_constraintVertical_bias="0.224">
+
+        <RadioButton
+            android:id="@+id/id_radiobutton_female"
+            android:layout_width="67dp"
+            android:layout_height="48dp"
+            android:buttonTint="@color/white"
+            android:drawableRight="@drawable/ic_female_"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.963"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.229" />
+
+        <RadioButton
+            android:id="@+id/id_radiobutton_male"
+            android:layout_width="83dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="212dp"
+            android:buttonTint="@color/white"
+            android:drawableRight="@drawable/ic_male_"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.893"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.231" />
+
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
