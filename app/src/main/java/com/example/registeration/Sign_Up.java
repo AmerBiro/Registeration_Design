@@ -8,17 +8,26 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 
-public class Sign_Up extends AppCompatActivity {
+import com.example.registeration.databinding.ActivityMainBinding;
+import com.example.registeration.databinding.ActivityRegisterationBinding;
+import com.example.registeration.databinding.ActivitySignUpBinding;
 
-    ImageButton back_arrow;
+
+public class Sign_Up extends AppCompatActivity {
+    private ActivitySignUpBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign__up);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        back_arrow = findViewById(R.id.id_button_sign_up_back_arrow);
-        back_arrow.setOnClickListener(new View.OnClickListener() {
+        binding = ActivitySignUpBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+
+
+        binding.idButtonSignUpBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Sign_Up.this, Registeration.class);

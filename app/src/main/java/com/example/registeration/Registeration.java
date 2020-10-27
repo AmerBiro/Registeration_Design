@@ -9,18 +9,25 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.registeration.databinding.ActivityRegisterationBinding;
+
 public class Registeration extends AppCompatActivity {
+    private ActivityRegisterationBinding binding;
 
 
-    ImageButton floaterButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeration);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        floaterButton = findViewById(R.id.id_button_registeration_floater_button);
-        floaterButton.setOnClickListener(new View.OnClickListener() {
+
+
+        binding = ActivityRegisterationBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+
+        binding.idButtonRegisterationFloaterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Registeration.this, Sign_Up.class);
