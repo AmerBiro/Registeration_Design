@@ -1,19 +1,25 @@
 package com.example.registeration;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 
 import com.example.registeration.databinding.ActivityMainBinding;
 import com.example.registeration.databinding.ActivityRegisterationBinding;
 import com.example.registeration.databinding.ActivitySignUpBinding;
 
+import java.text.DateFormat;
+import java.util.Calendar;
 
-public class Sign_Up extends AppCompatActivity {
+
+public class Sign_Up extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private ActivitySignUpBinding binding;
 
     @Override
@@ -26,6 +32,14 @@ public class Sign_Up extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        binding.idDatePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment dialogFragment = new DatePickerFragment();
+                dialogFragment.show(getSupportFragmentManager(), "date picker");
+            }
+        });
+
 
         binding.idButtonSignUpBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,5 +49,15 @@ public class Sign_Up extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, i);
+        calendar.set(Calendar.MONTH, i1);
+        calendar.set(Calendar.DAY_OF_MONTH, i2);
+        String birthDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        binding.idDatePicker.setText(birthDate);
     }
 }
